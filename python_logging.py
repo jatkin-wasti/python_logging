@@ -16,3 +16,7 @@ logging.critical('This is a critical message')
 # Logging a message with a variable
 name = 'Jamie'
 logging.error(f'{name} raised an error')
+
+# Creating our own logger
+logger = logging.getLogger('example_logger')
+logger.warning('This is a warning')

@@ -16,7 +16,7 @@
  **CRITICAL**
  -
 
-### Module's Output
+## Module's Output
 - If we run the following code from our py file
 ```python
 # Logging a message from each level
@@ -34,7 +34,7 @@ logging.critical('This is a critical message')
 - By default, the logging module only logs messages that are of Warning level or
  higher (though this can be edited if you wish)
     - This can be done with the `basicConfig(**kwargs)` method
-#### Basic Configurations
+### Basic Configurations
 - We briefly mentioned the `basicConfig(**kwargs)` method but we'll dive deeper
 into the parameters it takes
 - level: set the root logger to this security level
@@ -83,7 +83,7 @@ logging.error(f'{name} raised an error')
 ```
 
 ![logging2](images/logging_variable.PNG)
-### Combining Logging with Exceptions
+## Combining Logging with Exceptions
 - If a logging function is called in an except block that has the `exc_info`
 parameter set to True, we can get the full stack trace of an application
 ```Python
@@ -111,7 +111,7 @@ so instead we can just use `logging.exception()` which is just like calling
 a different level we simply call that logging method and set exc_info to True
 e.g `logging.critical("Message", exc_info=True)`
 
-### Module's Classes
+## Module's Classes
 **Logger**
 - Objects of this class will be used to call the functions
 **LogRecord**
@@ -125,5 +125,33 @@ logging outputs to corresponding destinations, like sys.stdout or a disk file.
 **Formatter**
 - Specify a string format that lists out the attributes that the output should
 contain
-#### Creating our own loggers
-- 
+### Creating our own loggers
+- To create our own logger we simply use the `logging.getLogger('logger_name')`
+function
+- If multiple calls are made with the same logger name, each call will refer to
+the same object (therefore we don't have to pass the logger around to access it
+elsewhere)
+- An example logger is made in the code snippet below
+```Python
+logger = logging.getLogger('example_logger')
+logger.warning('This is a warning')
+```
+### Using Handlers
+- If we've created our own logger and want to send the logs to multiple places
+we can use Handlers!
+- Handlers can send the output to configured destinations e.g stdout, files, via email etc.
+- Loggers can have multiple handlers to send the log to multiple locations
+- Handlers can also have security levels so that certain levels only send logs
+to the console, but more severe levels to be saved to a file
+- The code found in the `logging_handlers.py` file does just this and results in
+the output below
+- Both logs being sent to the console in the StreamHandler's format
+
+![logging2](images/logging_handlers1.PNG)
+
+- Then just the error being sent to the newly created file in the FileHandler's format
+
+![logging2](images/logging_handlers2.PNG)
+
+- The name of the logger corresponding to `__name__` is `__main__` in the original file,
+but when imported to another python file the name will match the file name you are importing
