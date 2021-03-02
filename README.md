@@ -1,20 +1,15 @@
 # Logging with Python
-- There is an in built logging module that we can make use of
+- There is an in built logging module that we can make use of by importing it
 ## Severity Levels
  **DEBUG**
- -
 
  **INFO**
- -
 
  **WARNING**
- -
 
  **ERROR**
- -
 
  **CRITICAL**
- -
 
 ## Module's Output
 - If we run the following code from our py file
