@@ -147,11 +147,11 @@ to the console, but more severe levels to be saved to a file
 the output below
 - Both logs being sent to the console in the StreamHandler's format
 
-![logging2](images/logging_handlers1.PNG)
+![handlers1](images/python_handlers1.PNG)
 
 - Then just the error being sent to the newly created file in the FileHandler's format
 
-![logging2](images/logging_handlers2.PNG)
+![handlers2](images/python_handlers2.PNG)
 
 - The name of the logger corresponding to `__name__` is `__main__` in the original file,
 but when imported to another python file the name will match the file name you are importing
